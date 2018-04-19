@@ -5,7 +5,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.validation.constraints.Email;
 import java.util.List;
 import java.util.Set;
 
@@ -21,9 +20,8 @@ public class User {
     private String userId;
 
     @Indexed(unique = true)
-    private String username;
+    private String userName;
 
-    @Email
     private String email;
 
     private int score;
