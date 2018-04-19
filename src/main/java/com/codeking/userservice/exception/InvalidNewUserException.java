@@ -8,6 +8,9 @@ import org.springframework.validation.FieldError;
 
 import java.util.List;
 
+/**
+ * exception thrown in case of invalid data entered when adding new user.
+ */
 @Getter
 @Setter
 @AllArgsConstructor

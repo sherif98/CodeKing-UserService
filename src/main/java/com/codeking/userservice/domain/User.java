@@ -5,15 +5,18 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
 import java.util.Set;
 
+/**
+ * entity represents user object.
+ */
 @Document(collection = "user")
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class User {
 
     @Id
@@ -26,6 +29,5 @@ public class User {
 
     private int score;
     private Set<Badge> badges;
-    private List<String> submissionIds;
 
 }

@@ -5,14 +5,19 @@ import com.codeking.userservice.domain.User;
 import com.codeking.userservice.exception.InvalidNewUserException;
 import com.codeking.userservice.exception.UserNotFoundException;
 import com.codeking.userservice.repository.UserRepository;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+/**
+ * user controller provides http end points to get user by ID and add new user.
+ */
 @RestController
 @RequestMapping("/user")
+@Log4j2
 public class UserController {
 
     @Autowired
@@ -20,12 +25,15 @@ public class UserController {
 
     @GetMapping("{userId}")
     public User getUserById(@PathVariable("userId") String userId) {
+        log.info("Searching for User with UserId: {}", userId);
         return userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(userId));
     }
 
+
     @PostMapping
     public User addNewUser(@RequestBody @Valid NewUser newUser, Errors errors) {
+        log.info("Trying to add new user {}", newUser);
         if (errors.hasErrors()) {
             throw new InvalidNewUserException(errors.getFieldErrors());
         }

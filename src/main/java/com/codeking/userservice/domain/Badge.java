@@ -1,5 +1,8 @@
 package com.codeking.userservice.domain;
 
+/**
+ * user badges that can be earned.
+ */
 public enum Badge {
 
     FIRST_PROBLEM_SOLVED,

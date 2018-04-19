@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * exception thrown in case of searching for a non existing user.
+ */
 @Getter
 @Setter
 @NoArgsConstructor
